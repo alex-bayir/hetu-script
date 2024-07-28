@@ -2,6 +2,7 @@ import 'dart:math' as math;
 import 'dart:collection';
 
 import 'package:characters/characters.dart';
+import 'package:hetu_script/extensions.dart';
 
 import '../value/entity.dart';
 import '../type/type.dart';
@@ -549,6 +550,18 @@ extension IterableBinding on Iterable {
                 Map<String, dynamic> namedArgs = const {},
                 List<HTType> typeArgs = const []}) =>
             toList();
+      case 'toSet':
+        return (HTEntity entity,
+                {List<dynamic> positionalArgs = const [],
+                Map<String, dynamic> namedArgs = const {},
+                List<HTType> typeArgs = const []}) =>
+            toSet();
+      case 'toMap':
+        return (HTEntity entity,
+                {List<dynamic> positionalArgs = const [],
+                Map<String, dynamic> namedArgs = const {},
+                List<HTType> typeArgs = const []}) =>
+            this is Iterable<MapEntry> ? (this as Iterable<MapEntry>).toMap() : toMap((e)=>positionalArgs[0](e),(e)=>positionalArgs[1](e));
       case 'length':
         return length;
       case 'isEmpty':
@@ -589,8 +602,12 @@ extension IterableBinding on Iterable {
         };
       case 'first':
         return first;
+      case 'firstOrNull':
+        return firstOrNull;
       case 'last':
         return last;
+      case 'lastOrNull':
+        return lastOrNull;
       case 'single':
         return single;
       case 'firstWhere':

@@ -229,7 +229,7 @@ class HTSetClassBinding extends HTExternalClass {
                 {List<dynamic> positionalArgs = const [],
                 Map<String, dynamic> namedArgs = const {},
                 List<HTType> typeArgs = const []}) =>
-            Set.from(positionalArgs);
+            Set.from(positionalArgs.isNotEmpty && positionalArgs.first is List ? positionalArgs.first as List: positionalArgs);
       default:
         throw HTError.undefined(id);
     }
