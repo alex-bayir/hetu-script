@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:hetu_script/extensions.dart';
 import 'package:hetu_script/hetu_script.dart';
 
 import '../external/external_class.dart';
@@ -39,6 +40,8 @@ class HTHetuClassBinding extends HTExternalClass {
             return jsonifyList(object);
           } else if (isJsonDataType(object)) {
             return hetu.lexicon.stringify(object);
+          }else if (object is Map){
+            return object.jsonify();
           } else {
             return jsonEncode(object);
           }

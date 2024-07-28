@@ -1015,6 +1015,12 @@ extension MapBinding on Map {
                 Map<String, dynamic> namedArgs = const {},
                 List<HTType> typeArgs = const []}) =>
             remove(positionalArgs.first);
+      case 'jsonify':
+        return (HTEntity entity,
+                {List<dynamic> positionalArgs = const [],
+                Map<String, dynamic> namedArgs = const {},
+                List<HTType> typeArgs = const []}) =>
+            jsonify();
       default:
         throw HTError.undefined(id);
     }

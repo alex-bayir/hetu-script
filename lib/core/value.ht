@@ -526,4 +526,6 @@ external class Map {
 	function remove(key: any)
 
   function putIfAbsent(key: any, value: any) -> any
+
+  function jsonify() -> Map
 }
