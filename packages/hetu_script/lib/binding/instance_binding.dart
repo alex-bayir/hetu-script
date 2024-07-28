@@ -561,7 +561,7 @@ extension IterableBinding on Iterable {
                 {List<dynamic> positionalArgs = const [],
                 Map<String, dynamic> namedArgs = const {},
                 List<HTType> typeArgs = const []}) =>
-            this is Iterable<MapEntry> ? (this as Iterable<MapEntry>).toMap() : toMap((e)=>positionalArgs[0](e),(e)=>positionalArgs[1](e));
+            this is Iterable<MapEntry> ? (this as Iterable<MapEntry>).toMap() : toMap((e)=>(positionalArgs[0] as HTFunction).call(positionalArgs:[e]),(e)=>positionalArgs[1].call(positionalArgs:[e]));
       case 'length':
         return length;
       case 'isEmpty':

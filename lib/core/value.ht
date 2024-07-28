@@ -357,6 +357,10 @@ external class Iterable {
 
   function toList() -> List
 
+  function toSet() -> Set
+
+  function toMap([key: (any) -> any, value: (any) -> any]) -> Map
+
 	get length -> int
 
 	get isEmpty -> bool
@@ -373,7 +377,11 @@ external class Iterable {
 
 	get first -> any
 
+  get firstOrNull -> any
+
 	get last -> any
+
+  get lastOrNull -> any
 
 	get single -> any
 
