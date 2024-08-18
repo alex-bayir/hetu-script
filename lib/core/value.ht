@@ -5,6 +5,8 @@
 
 external abstract class num {
 
+  static function parse(source: str) -> num
+
   function toPercentageString([fractionDigits: int = 0]) -> str
 
   function compareTo(compareTo: num) -> int
